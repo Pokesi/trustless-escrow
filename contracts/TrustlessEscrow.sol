@@ -239,8 +239,12 @@ contract TrustlessEscrowERC721 {
             }
         }
         // return tokens to their owners
-        IERC721(address1).transferFrom(address(this), user1, tokenId1);
-        IERC721(address2).transferFrom(address(this), user2, tokenId2);
+        if (IERC721(address1).balanceOf(address(this)) > 0) {
+            IERC721(address1).transferFrom(address(this), user1, tokenId1);
+        }
+        if (IERC721(address2).balanceOf(address(this)) > 0) {
+            IERC721(address2).transferFrom(address(this), user2, tokenId2);
+        }
     }
 
     function execute() external {
@@ -345,7 +349,9 @@ contract TrustlessEscrowHybrid {
             }
         }
         // return tokens to their owners
-        IERC721(address1).transferFrom(address(this), user1, tokenId);
+        if (IERC721(address1).balanceOf(address(this)) > 0) {
+            IERC721(address1).transferFrom(address(this), user1, tokenId);
+        }
         IERC20(address2).transferFrom(address(this), user2, IERC20(address2).balanceOf(address(this)));
     }
 
