@@ -21,7 +21,7 @@ type address = `0x${string}`;
 const abiCoder = ethers.utils.defaultAbiCoder;
 
 const n: address = "0xBEEF";
-const CONTRACT: address = "0xd6bC0F49982021c8974a2b33Aa46dA6E7F8E88f3";
+const CONTRACT: address = "0x3Ab5189Aac6c3d906C6A8809BeC824064f38957F";
 
 Object.defineProperty(String.prototype, "capitalize", {
   value: function () {
