@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.3",
     "ethers": "^5.7.2",
     "keccak256": "^1.0.6",
     "prettier": "^2.8.8",
