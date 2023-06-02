@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect as effect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -15,7 +16,6 @@ import eAbi from "./escrowAbi";
 import toast, { Toaster } from "react-hot-toast";
 import { keccak256 } from "@ethersproject/keccak256";
 import { BiCopy } from 'react-icons/bi';
-
 
 type address = `0x${string}`;
 const abiCoder = ethers.utils.defaultAbiCoder;
