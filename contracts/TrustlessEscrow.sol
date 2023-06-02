@@ -31,6 +31,7 @@ contract TrustlessEscrowERC20 {
     bytes2 public confirmations = 0x0000;
 
     uint256 timestamp;
+    bytes1 _type = 0x00;
 
     constructor(
         address _user1,
@@ -54,35 +55,6 @@ contract TrustlessEscrowERC20 {
             }
         }
         _;
-    }
-
-    function logAll() public view {
-        bytes32 slot0;
-        bytes32 slot1;
-        bytes32 slot2;
-        bytes32 slot3;
-        bytes32 slot4;
-        bytes32 slot5;
-        bytes32 slot6;
-        bytes32 slot7;
-        assembly {
-            slot0 := sload(0x00)
-            slot1 := sload(0x01)
-            slot2 := sload(0x02)
-            slot3 := sload(0x03)
-            slot4 := sload(0x04)
-            slot5 := sload(0x05)
-            slot6 := sload(0x06)
-            slot7 := sload(0x07)
-        }
-        console.logBytes32(slot0);
-        console.logBytes32(slot1);
-        console.logBytes32(slot2);
-        console.logBytes32(slot3);
-        console.logBytes32(slot4);
-        console.logBytes32(slot5);
-        console.logBytes32(slot6);
-        console.logBytes32(slot7);
     }
 
     function confirm() external onlyUser {
@@ -162,6 +134,8 @@ contract TrustlessEscrowERC721 {
     uint256 tokenId1;
     uint256 tokenId2;
 
+    bytes1 _type = 0x01;
+
     constructor(
         address _user1,
         address _user2,
@@ -171,7 +145,7 @@ contract TrustlessEscrowERC721 {
         uint256 _tokenId2,
         uint256 interval
     ) {
-        require((_user1Address != _user2Address) && (_tokenId1 != _tokenId2));
+        require(_user1Address != _user2Address);
         user1 = _user1;
         user2 = _user2;
         address1 = _user1Address;
@@ -273,6 +247,8 @@ contract TrustlessEscrowHybrid {
 
     uint256 timestamp;
     uint256 tokenId;
+
+    bytes1 _type = 0x02;
 
     constructor(
         address _user1,
