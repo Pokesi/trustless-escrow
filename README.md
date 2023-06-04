@@ -42,3 +42,11 @@ To execute an escrow trade, anyone can call the `execute()` function and send bo
 
 #### Cancelling
 After a predetermined waiting period, either user can cancel the trade and all assets in the trade will be returned to their depositors.
+
+## Solutions
+### Building a Scalable Escrow Platform
+Trustless can scale to n amount of escrows at a time, provided that there is only one escrow at a time with the same `user1` and `user2`. Trustless achieves this by distributing the responsibility of each seperate escrow to a new contract each time. This ensures that escrows cannot collide, as they all have seperate balances. The `TrustlessEscrow` contracts also are not locked to a certain amount of ERC20 token, so the terms of the escrow are fluid. This however is not possible with ERC721 tokens as we cannot assume that the token employs ERC721Enumerable, so it is limited to a single tokenId.
+The only limitation is that the router uses the `user1` and `user2` values to store the contract addresses for each escrow, so unless you know the contract address for your escrow, users should refrain from creating multiple escrows between the same addresses.
+
+### Decentralized Escrow Arbitration
+Trustless' escrow arbitration is just that - trustless. Users have to treat their funds very carefully, as there is no override to the escrow. Trustless escrows must be 'confirmed' by both users before execution. This means that both users are happy to execute the escrow in the current state. Only once both parties have confirmed the escrow, it can be executed. If it is not executed by the escrows 'expiry time' it can be reversed by either user and everyone gets their tokens back.
