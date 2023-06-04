@@ -3,7 +3,7 @@ A premissionless, scalable escrow system for the CryptScrow Codeathon.
 
 # Usage
 ## Frontend
-View the frontend (here)[https://trustless-escrow.vercel.app].
+View the frontend [here](https://trustless-escrow.vercel.app).
 Usage is pretty straight-forward.
 
 ## Creating an Escrow
