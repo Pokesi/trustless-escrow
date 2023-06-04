@@ -2,6 +2,15 @@
 A premissionless, scalable escrow system for the CryptScrow Codeathon.
 
 # Usage
+## Contracts
+[TrustlessRouter](./contracts/TrustlessRouter.sol)
+[TrustlessEscrow](./contracts/TrustlessEscrow.sol)
+
+<br>📝 You need a `key.ts` file in the following format to deploy the contracts to the Horizen testnet:
+```ts
+export default ["PRIVATE_KEY", "ETHERSCAN_KEY"]
+```
+
 ## Frontend
 View the frontend [here](https://trustless-escrow.vercel.app).
 Usage is pretty straight-forward.
